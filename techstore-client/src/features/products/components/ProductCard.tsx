@@ -7,7 +7,7 @@ type Props = {
 export const ProductCard = ({ product }: Props) => {
   return (
     <article className="rounded-xl bg-slate-900 p-4">
-      {product.imageUrl}
+      <img src={product.imageUrl} alt={product.title} />
 
       <h2 className="text-xl font-bold text-white">{product.title}</h2>
 
