@@ -26,7 +26,7 @@ export const Navbar = () => {
                 {user.name}
               </Link>
 
-              <button onClick={logout} className="text-red-500">
+              <button onClick={handleLogout} className="text-red-500">
                 Logout
               </button>
             </>
