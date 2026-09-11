@@ -26,15 +26,16 @@ export const Navbar = () => {
                 {user.name}
               </Link>
 
+              <Link to="/products" className="text-white">
+                Products
+              </Link>
+
               <button onClick={handleLogout} className="text-red-500">
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/products" className="text-white">
-                Products
-              </Link>
               <Link to="/login" className="text-white">
                 Login
               </Link>
