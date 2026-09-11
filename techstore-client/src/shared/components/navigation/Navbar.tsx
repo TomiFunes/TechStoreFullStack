@@ -32,6 +32,9 @@ export const Navbar = () => {
             </>
           ) : (
             <>
+              <Link to="/products" className="text-white">
+                Products
+              </Link>
               <Link to="/login" className="text-white">
                 Login
               </Link>

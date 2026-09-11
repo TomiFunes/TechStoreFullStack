@@ -8,7 +8,7 @@ import { ProfilePage } from "@/features/auth/pages/ProfilePage";
 import { ProtectedRoute } from "@/features/auth/components/ProtectedRoute";
 import { LoginPage } from "@/features/auth/pages/LoginPage";
 import { RegisterPage } from "@/features/auth/pages/RegisterPage";
-
+import { ProductsPage } from "@/features/products/pages/ProductsPage";
 export const router = createBrowserRouter([
   {
     element: <MainLayout />,
@@ -16,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/products",
+        element: <ProductsPage />,
       },
       {
         path: "/login",
