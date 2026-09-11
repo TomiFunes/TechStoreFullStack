@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import productRoutes from "./modules/products/product.routes";
 import authRoutes from "./modules/auth/auth.routes";
 
 export const app = express();
@@ -14,6 +15,7 @@ app.use(
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
 
 app.get("/", (_, res) => {
   res.json({
