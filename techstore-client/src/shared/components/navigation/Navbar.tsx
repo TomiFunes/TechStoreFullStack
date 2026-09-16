@@ -25,9 +25,6 @@ export const Navbar = () => {
         <div className="flex gap-4">
           {user ? (
             <>
-              <Link to="/products" className="text-white">
-                Products
-              </Link>
               <Link to="/cart" className="text-white">
                 Cart ({cartCount})
               </Link>
@@ -41,6 +38,9 @@ export const Navbar = () => {
             </>
           ) : (
             <>
+              <Link to="/products" className="text-white">
+                Products
+              </Link>
               <Link to="/login" className="text-white">
                 Login
               </Link>
