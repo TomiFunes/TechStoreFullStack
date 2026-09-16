@@ -9,6 +9,7 @@ import { ProtectedRoute } from "@/features/auth/components/ProtectedRoute";
 import { LoginPage } from "@/features/auth/pages/LoginPage";
 import { RegisterPage } from "@/features/auth/pages/RegisterPage";
 import { ProductsPage } from "@/features/products/pages/ProductsPage";
+import { CartPage } from "@/features/cart/pages/CartPage";
 export const router = createBrowserRouter([
   {
     element: <MainLayout />,
@@ -40,6 +41,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <ProfilePage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <ProtectedRoute>
+            <CartPage />
           </ProtectedRoute>
         ),
       },

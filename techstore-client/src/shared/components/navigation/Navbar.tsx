@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
-
+import { useCartStore } from "@/features/cart/store/cart-store";
 import { useAuthStore } from "@/features/auth/store/auth-store";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
+  const items = useCartStore((state) => state.items);
+
+  const cartCount = items.reduce((acc, item) => acc + item.quantity, 0);
 
   const logout = useAuthStore((state) => state.logout);
   const handleLogout = () => {
@@ -22,14 +25,16 @@ export const Navbar = () => {
         <div className="flex gap-4">
           {user ? (
             <>
-              <Link to="/profile" className="text-white">
-                {user.name}
-              </Link>
-
               <Link to="/products" className="text-white">
                 Products
               </Link>
+              <Link to="/cart" className="text-white">
+                Cart ({cartCount})
+              </Link>
 
+              <Link to="/profile" className="text-white">
+                {user.name}
+              </Link>
               <button onClick={handleLogout} className="text-red-500">
                 Logout
               </button>
