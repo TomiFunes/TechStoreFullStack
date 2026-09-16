@@ -4,7 +4,7 @@ import { MainLayout } from "@/shared/components/layouts/MainLayout";
 
 import { HomePage } from "@/features/products/pages/HomePage";
 import { ProfilePage } from "@/features/auth/pages/ProfilePage";
-2;
+import { ProductDetailPage } from "@/features/products/pages/ProductDetailPage";
 import { ProtectedRoute } from "@/features/auth/components/ProtectedRoute";
 import { LoginPage } from "@/features/auth/pages/LoginPage";
 import { RegisterPage } from "@/features/auth/pages/RegisterPage";
@@ -20,6 +20,11 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <ProductsPage />,
+      },
+      {
+        path: "/products/:id",
+
+        element: <ProductDetailPage />,
       },
       {
         path: "/login",
