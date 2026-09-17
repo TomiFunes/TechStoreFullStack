@@ -13,28 +13,40 @@ enum Role {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-
-  role      Role     @default(USER)
+  id       String  @id @default(uuid())
+  name     String
+  email    String  @unique
+  password String
+  orders   Order[]
+  role     Role    @default(USER)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
 model Product {
-  id          String   @id @default(uuid())
+  id String @id @default(uuid())
 
   title       String
   description String
 
-  price       Float
+  price Float
 
-  stock       Int
+  stock Int
 
-  imageUrl    String
+  imageUrl String
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id String @id @default(uuid())
+
+  total Float
+
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 }

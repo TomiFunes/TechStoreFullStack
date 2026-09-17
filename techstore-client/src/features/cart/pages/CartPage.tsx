@@ -1,4 +1,5 @@
 import { useCartStore } from "../store/cart-store";
+import { useNavigate } from "react-router-dom";
 
 export const CartPage = () => {
   const { items, increaseQuantity, decreaseQuantity, removeItem, clearCart } =
@@ -8,6 +9,8 @@ export const CartPage = () => {
     (acc, item) => acc + item.price * item.quantity,
     0,
   );
+  const navigate = useNavigate();
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
 
   if (items.length === 0) {
     return (
@@ -42,7 +45,11 @@ export const CartPage = () => {
             key={item.id}
             className="flex items-center gap-6 rounded-xl border p-4 text-white"
           >
-            <img src={item.imageUrl} alt={item.title}></img>
+            <img
+              src={item.imageUrl}
+              alt={item.title}
+              className="h-34 w-34 flex-shrink-0 rounded-lg object-cover"
+            ></img>
 
             <div className="flex-1">
               <h2 className="text-xl font-semibold">{item.title}</h2>
@@ -84,13 +91,19 @@ export const CartPage = () => {
 
       <div className="mt-10 rounded-xl border p-6">
         <h2 className="mb-4 text-2xl font-bold text-white">Order Summary</h2>
-
+        <div className="mb-2 flex justify-between text-white">
+          <span>Items</span>
+          <span>{totalItems}</span>
+        </div>
         <div className="flex justify-between text-lg text-green-500">
           <span>Total</span>
 
           <span>${total.toFixed(2)}</span>
         </div>
-        <button className="mt-6 w-full rounded-lg bg-blue-600 py-3 font-semibold text-white hover:bg-blue-700">
+        <button
+          onClick={() => navigate("/checkout")}
+          className="mt-6 w-full rounded-lg bg-blue-600 py-3 font-semibold text-white hover:bg-blue-700"
+        >
           Checkout
         </button>
       </div>

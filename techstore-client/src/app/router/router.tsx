@@ -10,6 +10,7 @@ import { LoginPage } from "@/features/auth/pages/LoginPage";
 import { RegisterPage } from "@/features/auth/pages/RegisterPage";
 import { ProductsPage } from "@/features/products/pages/ProductsPage";
 import { CartPage } from "@/features/cart/pages/CartPage";
+import { CheckoutPage } from "@/features/orders/pages/CheckoutPage";
 export const router = createBrowserRouter([
   {
     element: <MainLayout />,
@@ -49,6 +50,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <CartPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/checkout",
+        element: (
+          <ProtectedRoute>
+            <CheckoutPage />
           </ProtectedRoute>
         ),
       },
