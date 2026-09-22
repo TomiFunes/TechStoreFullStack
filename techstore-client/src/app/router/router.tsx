@@ -11,6 +11,7 @@ import { RegisterPage } from "@/features/auth/pages/RegisterPage";
 import { ProductsPage } from "@/features/products/pages/ProductsPage";
 import { CartPage } from "@/features/cart/pages/CartPage";
 import { CheckoutPage } from "@/features/orders/pages/CheckoutPage";
+import { OrderSuccessPage } from "@/features/orders/pages/OrderSuccessPage";
 export const router = createBrowserRouter([
   {
     element: <MainLayout />,
@@ -58,6 +59,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <CheckoutPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/order-success",
+        element: (
+          <ProtectedRoute>
+            <OrderSuccessPage />
           </ProtectedRoute>
         ),
       },

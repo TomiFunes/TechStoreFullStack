@@ -16,24 +16,39 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="border-b border-slate-800 bg-slate-950">
+    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="text-white">
+        <Link
+          to="/"
+          className="text-2xl font-bold text-blue-500 transition hover:text-blue-400"
+        >
           TechStore
         </Link>
 
-        <div className="flex gap-4">
+        <div className="flex items-center gap-6">
           {user ? (
             <>
-              <Link to="/cart" className="text-white">
-                Cart ({cartCount})
+              <Link
+                to="/products"
+                className="text-slate-300 transition hover:text-white"
+              >
+                Products
+              </Link>
+              <Link
+                to="/cart"
+                className="flex items-center gap-2 text-slate-300 transition hover:text-white"
+              >
+                Cart
+                <span className="rounded-full bg-blue-600 px-2 py-1 text-xs font-bold text-white">
+                  {cartCount}
+                </span>
               </Link>
 
-              <Link to="/profile" className="text-white">
+              <Link
+                to="/profile"
+                className="text-slate-300 transition hover:text-white"
+              >
                 {user.name}
-              </Link>
-              <Link to="/products" className="text-white">
-                Products
               </Link>
               <button onClick={handleLogout} className="text-red-500">
                 Logout
@@ -41,14 +56,32 @@ export const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/products" className="text-white">
+              <Link
+                to="/products"
+                className="text-slate-300 transition hover:text-white"
+              >
                 Products
               </Link>
-              <Link to="/login" className="text-white">
+              <Link
+                to="/cart"
+                className="flex items-center gap-2 text-slate-300 transition hover:text-white"
+              >
+                Cart
+                <span className="rounded-full bg-blue-600 px-2 py-1 text-xs font-bold text-white">
+                  {cartCount}
+                </span>
+              </Link>
+              <Link
+                to="/login"
+                className="text-slate-300 transition hover:text-white"
+              >
                 Login
               </Link>
 
-              <Link to="/register" className="text-white">
+              <Link
+                to="/register"
+                className="text-slate-300 transition hover:text-white"
+              >
                 Register
               </Link>
             </>

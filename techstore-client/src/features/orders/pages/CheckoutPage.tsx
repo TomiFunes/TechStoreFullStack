@@ -17,7 +17,7 @@ export const CheckoutPage = () => {
 
       clearCart();
 
-      navigate("/");
+      navigate("/order-success");
     } catch (error) {
       console.error(error);
     }
