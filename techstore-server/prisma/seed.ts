@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+  console.log("SEEED");
   await prisma.product.createMany({
     data: [
       {
@@ -10,21 +11,21 @@ async function main() {
         description: "Apple flagship smartphone",
         price: 1299,
         stock: 10,
-        imageUrl: "https://picsum.photos/300?1",
+        imageUrl: "https://pngimg.com/uploads/iphone16/iphone16_PNG38.png",
       },
       {
         title: "MacBook Pro M4",
         description: "Apple laptop",
         price: 2499,
         stock: 5,
-        imageUrl: "https://picsum.photos/300?2",
+        imageUrl: "https://pngimg.com/uploads/macbook/macbook_PNG22.png",
       },
       {
         title: "AirPods Pro",
         description: "Wireless earbuds",
         price: 299,
         stock: 25,
-        imageUrl: "https://picsum.photos/300?3",
+        imageUrl: "https://pngimg.com/uploads/airPods/airPods_PNG40.png",
       },
     ],
   });
