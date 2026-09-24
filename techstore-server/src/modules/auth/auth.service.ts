@@ -4,7 +4,6 @@ import { generateToken } from "../../utils/jwt";
 import { prisma } from "../../config/prisma";
 
 export const loginUser = async (email: string, password: string) => {
-  console.log("STEP 1");
   const user = await prisma.user.findUnique({
     where: {
       email,
@@ -14,19 +13,17 @@ export const loginUser = async (email: string, password: string) => {
   if (!user) {
     throw new Error("Invalid credentials");
   }
-  console.log("STEP 2");
 
   const passwordMatch = await bcrypt.compare(password, user.password);
 
   if (!passwordMatch) {
     throw new Error("Invalid credentials");
   }
-  console.log("STEP 3");
 
   const token = generateToken({
     userId: user.id,
   });
-  console.log("STEP 4");
+
   return {
     user: {
       id: user.id,

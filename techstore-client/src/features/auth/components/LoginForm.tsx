@@ -29,14 +29,16 @@ export const LoginForm = () => {
         <Input type="email" placeholder="Email" {...register("email")} />
 
         {errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+          <p className="mt-2 text-sm font-medium text-red-400">
+            {errors.email.message}
+          </p>
         )}
       </div>
 
       <div>
         <Input
           type="password"
-          placeholder="Contraseña"
+          placeholder="Password"
           {...register("password")}
         />
 
@@ -49,7 +51,26 @@ export const LoginForm = () => {
         <p className="text-sm text-red-500">Error al iniciar sesión</p>
       )}
 
-      <Button type="submit" disabled={loginMutation.isPending}>
+      <Button
+        type="submit"
+        disabled={loginMutation.isPending}
+        className="w-full
+        rounded-xl
+        bg-gradient-to-r
+        from-blue-600
+        to-cyan-500
+        py-3
+        font-semibold
+        text-white
+        shadow-lg
+        shadow-blue-500/20
+        transition-all
+        duration-300
+        hover:scale-[1.02]
+        hover:shadow-blue-500/40
+        disabled:cursor-not-allowed
+        disabled:opacity-50"
+      >
         {loginMutation.isPending ? "Iniciando sesión..." : "Iniciar sesión"}
       </Button>
     </form>

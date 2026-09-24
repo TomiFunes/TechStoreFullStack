@@ -11,6 +11,7 @@ import {
 import { Button } from "@/shared/components/ui/Button";
 import { Input } from "@/shared/components/ui/Input";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -44,7 +45,9 @@ export const RegisterForm = () => {
           <span className="text-4xl font-bold text-white">✓</span>
         </div>
 
-        <h2 className="text-4xl font-bold text-white">Welcome to TechStore</h2>
+        <h2 className="text-center text-5xl font-extrabold text-white">
+          Welcome to TechStore
+        </h2>
 
         <p className="mt-3 text-lg text-slate-400">
           Your account has been created successfully.
@@ -55,20 +58,20 @@ export const RegisterForm = () => {
     );
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <Input placeholder="Nombre" {...register("name")} />
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <Input placeholder="Name" {...register("name")} />
 
-      {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+      {errors.name && (
+        <p className="mt-2 text-sm font-medium text-red-400">
+          {errors.name.message}
+        </p>
+      )}
 
       <Input placeholder="Email" {...register("email")} />
 
       {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
-      <Input
-        type="password"
-        placeholder="Contraseña"
-        {...register("password")}
-      />
+      <Input type="password" placeholder="Password" {...register("password")} />
 
       {errors.password && (
         <p className="text-red-500">{errors.password.message}</p>
@@ -76,7 +79,7 @@ export const RegisterForm = () => {
 
       <Input
         type="password"
-        placeholder="Confirmar contraseña"
+        placeholder="Confirm password"
         {...register("confirmPassword")}
       />
 
@@ -84,7 +87,36 @@ export const RegisterForm = () => {
         <p className="text-red-500">{errors.confirmPassword.message}</p>
       )}
 
-      <Button type="submit">Crear cuenta</Button>
+      <Button
+        type="submit"
+        className="
+w-full
+rounded-xl
+bg-gradient-to-r
+from-blue-600
+to-cyan-500
+py-3
+font-semibold
+text-white
+shadow-lg
+shadow-blue-500/20
+transition-all
+duration-300
+hover:scale-[1.02]
+hover:shadow-blue-500/40
+"
+      >
+        Create account
+      </Button>
+      <div className="pt-4 text-center">
+        <p className="text-slate-400">Already have an account?</p>
+        <Link
+          to="/login"
+          className="mt-2 inline-block text-blue-500 hover:text-blue-400"
+        >
+          Sign in
+        </Link>
+      </div>
     </form>
   );
 };

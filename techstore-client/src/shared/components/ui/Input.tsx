@@ -7,15 +7,19 @@ export const Input = ({ className = "", ...props }: InputProps) => {
     <input
       className={`
         w-full
-        rounded-lg
+        rounded-xl
         border
         border-slate-700
-        bg-slate-900
+        bg-slate-950
         px-4
-        py-2
+        py-3
         text-white
+        placeholder:text-slate-500
         outline-none
+        transition-all
+        duration-300
         focus:border-blue-500
+        focus:ring-4  focus:ring-blue-500/20
         ${className}
       `}
       {...props}
