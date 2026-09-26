@@ -8,10 +8,7 @@ export const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://tech-store-full-stack-psi.vercel.app",
-    ],
+    origin: true,
     credentials: true,
   }),
 );
