@@ -64,7 +64,7 @@ export const ProductDetailPage = () => {
         </div>
 
         <div>
-          <h1 className="mb-6 text-6xl font-extrabold leading-tight tracking-tight text-white">
+          <h1 className="mb-5 text-5xl font-extrabold leading-tight tracking-tight text-white">
             {product.title}
           </h1>
 
@@ -99,9 +99,9 @@ export const ProductDetailPage = () => {
               {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
             </button>
             {added && (
-              <p className="mt-4 font-medium text-green-400 animate-pulse">
+              <div className="absolute -top-16 left-0 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm font-medium text-green-400 backdrop-blur-md animate-bounce">
                 ✅ Product added to cart
-              </p>
+              </div>
             )}
           </div>
         </div>

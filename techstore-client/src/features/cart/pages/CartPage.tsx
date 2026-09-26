@@ -18,9 +18,20 @@ export const CartPage = () => {
         <h1 className="mb-6 text-4xl font-bold text-white">Shopping Cart</h1>
 
         <div className="py-20 text-center">
-          <p className="text-xl text-slate-400 text-white">
-            Your cart is empty.
+          <h2 className="mb-4 text-3xl font-bold text-white">
+            Your cart is empty
+          </h2>
+
+          <p className="text-slate-400">
+            Add some products and start shopping.
           </p>
+
+          <button
+            onClick={() => navigate("/products")}
+            className="mt-8 rounded-xl bg-blue-600 px-8 py-3 text-white hover:bg-blue-700"
+          >
+            Browse Products
+          </button>
         </div>
       </div>
     );
@@ -39,7 +50,7 @@ export const CartPage = () => {
         </button>
       </div>
 
-      <div className="space-y-6">
+      <div className="h-fit rounded-3xl border border-slate-800 bg-slate-900/80 p-6 backdrop-blur-md">
         {items.map((item) => (
           <div
             key={item.id}
@@ -48,7 +59,7 @@ export const CartPage = () => {
             <img
               src={item.imageUrl}
               alt={item.title}
-              className="h-34 w-34 flex-shrink-0 rounded-lg object-cover"
+              className="h-28 w-28 flex-shrink-0 rounded-2xl bg-slate-900 p-2 object-contain"
             ></img>
 
             <div className="flex-1">
@@ -73,6 +84,11 @@ export const CartPage = () => {
               >
                 +
               </button>
+              {item.quantity === item.stock && (
+                <p className="text-sm text-orange-400">
+                  Maximum available stock reached
+                </p>
+              )}
             </div>
 
             <p className="w-24 text-right font-semibold text-green-500">
